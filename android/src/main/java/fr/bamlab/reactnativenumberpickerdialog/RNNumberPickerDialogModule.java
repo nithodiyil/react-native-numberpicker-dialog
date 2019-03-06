@@ -49,6 +49,9 @@ class RNNumberPickerDialogModule extends ReactContextBaseJavaModule {
         String[] displayedValues = new String[values.size()];
         for(int i = 0;i<values.size();++i) {
             displayedValues[i] = values.getString(i);
+            if(options.getArray("selectedValue").size() > 0 && displayedValues[i].equals(options.getArray("selectedValue").getString(0))) {
+                picker.setValue(i);
+            }
         }
         picker.setDisplayedValues(displayedValues);
         picker.setWrapSelectorWheel(false);
